@@ -14,7 +14,10 @@ app = Flask(__name__)
 
 # SECRET HARDCODÉ (mauvaise pratique)
 # Solution 1 
-SECRET_KEY = os.getenv("SECRET_KEY" , "API-KEY-123456")
+# Utilisation d'une variable d'environnement sans fallback hardcodé
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY environment variable must be set")
 
 # Logging non sécurisé
 # Solution 2 + Solution 3 

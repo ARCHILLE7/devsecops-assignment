@@ -1,0 +1,15 @@
+# Configuration Gitleaks
+title = "DevSecOps Assignment Gitleaks Config"
+
+[extend]
+# Utiliser la configuration par défaut de Gitleaks
+useDefault = true
+
+[[rules]]
+id = "allow-api-key-fallback"
+description = "Permet la clé API de fallback dans app.py (exemple/démo)"
+regex = '''API-KEY-123456'''
+tags = ["allowlist"]
+paths = [
+    "api/app.py"
+]

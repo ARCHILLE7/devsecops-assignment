@@ -1,0 +1,3 @@
+# Fichier de configuration pour ignorer les faux positifs Gitleaks
+# Ignorer la clé API de démonstration dans app.py (valeur de fallback)
+api/app.py

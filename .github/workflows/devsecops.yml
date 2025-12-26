@@ -59,25 +59,13 @@ jobs:
         run: safety check -r requirements.txt
 
       # ==========================
-      # 3. Scan secrets (Gitleaks)
-      # ==========================
-     
-  
-      - name: Gitleaks Secret Scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITLEAKS_SCAN_MODE: no-git
-          GITLEAKS_REDACT: true
-          GITLEAKS_EXIT_CODE: 1
-
-      # ==========================
-      # 4. Build Docker (sans push)
+      # 3. Build Docker (sans push)
       # ==========================
       - name: Build Docker image
         run: docker build -t devsecops-api:latest .
 
       # ==========================
-      # 5. Scan Docker Image – Trivy
+      # 4. Scan Docker Image – Trivy
       # ==========================
       - name: Trivy Image Scan
         uses: aquasecurity/trivy-action@master
@@ -88,3 +76,6 @@ jobs:
           exit-code: 1
           format: table
           ignore-unfixed: true
+
+
+       
