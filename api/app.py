@@ -7,14 +7,20 @@ import shlex
 import ast
 
 
+
+
 app = Flask(__name__)
 
 
 # SECRET HARDCODÉ (mauvaise pratique)
-
+# API_KEY = "API-KEY-123456"
 
 # Solution 1 
-SECRET_KEY = os.getenv("SECRET_KEY", "API-KEY-123456")
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+
+
+
 
 # Logging non sécurisé
 # Solution 2 + Solution 3 
