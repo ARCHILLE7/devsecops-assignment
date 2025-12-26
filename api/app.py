@@ -13,15 +13,8 @@ app = Flask(__name__)
 
 
 # SECRET HARDCODÉ (mauvaise pratique)
-
-
-
 # Solution 1 
-SECRET_KEY = os.getenv("SECRET_KEY")
-
-
-
-
+SECRET_KEY = os.getenv("SECRET_KEY" , "API-KEY-123456")
 
 # Logging non sécurisé
 # Solution 2 + Solution 3 
