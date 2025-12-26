@@ -62,12 +62,13 @@ jobs:
       # 3. Scan secrets (Gitleaks)
       # ==========================
      
+  
       - name: Gitleaks Secret Scan
         uses: gitleaks/gitleaks-action@v2
-        with:
-          scan_mode: no-git
-          redact: true
-          exit-code: 1
+        env:
+          GITLEAKS_SCAN_MODE: no-git
+          GITLEAKS_REDACT: true
+          GITLEAKS_EXIT_CODE: 1
 
       # ==========================
       # 4. Build Docker (sans push)
