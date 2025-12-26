@@ -1,10 +1,8 @@
 from flask import Flask, request, jsonify
 import sqlite3
-import pickle
 import subprocess
 import hashlib
 import os
-import logging
 import shlex
 import ast
 
@@ -21,11 +19,6 @@ SECRET_KEY = os.getenv("SECRET_KEY", "API-KEY-123456")
 # Logging non sécurisé
 # Solution 2 + Solution 3 
 # logging.basicConfig(level=logging.DEBUG)
-
-# @app.route("/auth", methods=["POST"])
-# def auth():
-#     username = request.json.get("username")
-#     password = request.json.get("password")
 
 
 #     # SQL Injection
@@ -138,7 +131,7 @@ def debug():
     return jsonify({"debug": False}), 403
 
 # Solution 9
-@app.route("/log", methods=["POST"])
+@app.route("/log", methods=["GET"])
 def log_data():
     # data = request.json
     # # Log Injection
