@@ -13,7 +13,8 @@ app = Flask(__name__)
 
 
 # SECRET HARDCODÉ (mauvaise pratique)
-# API_KEY = "API-KEY-123456"
+
+
 
 # Solution 1 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -128,12 +129,7 @@ def read_file():
 # Solution 8
 @app.route("/debug", methods=["GET"])
 def debug():
-    # Divulgation d'informations sensibles
-    # return {
-    #     "api_key": API_KEY,
-    #     "env": dict(os.environ),
-    #     "cwd": os.getcwd()
-    # }
+    
     return jsonify({"debug": False}), 403
 
 # Solution 9
